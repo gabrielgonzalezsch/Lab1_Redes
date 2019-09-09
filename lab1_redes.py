@@ -7,6 +7,8 @@ from scipy.fftpack import ifft as transformadaFourierInversa
 
 ################ LECTURA DEL AUDIO HANDEL.WAV  ##################################################################################
 # Se reconoce el archivo de audio handel y se guarda, Donde datos es un arreglo que contiene las amplitudes
+#freqMuestreo: Corresponde a la cantidad de mediciones por segundo que se hicieron en la lectura del archivo .wav
+#datos: Corresponde a los datos (amplitudes) registradas en el audio leido.
 (freqMuestreo, datos) = wavfile.read('handel.wav')
 
 
@@ -22,6 +24,7 @@ def graficoSenalHandel(freqMuestreo,datos):
     plot.xlabel('Tiempo(en segundos)')
     plot.ylabel('Amplitud')
     plot.plot(vectorTiempoAudio, datos)
+    plot.show()
 
     return 0
 
@@ -64,6 +67,6 @@ def transformadaFourierInversaYgrafico(datosTransformadaFourier,freqMuestreo,dat
 
 ############################ BLOQUE PRINCIPAL O MAIN ################################
 
-graficoSenalHandel(freqMuestreo,datos)
+#graficoSenalHandel(freqMuestreo,datos)
 a = transformadaFourierYgrafico(freqMuestreo,datos)
 transformadaFourierInversaYgrafico(a,freqMuestreo,datos)
