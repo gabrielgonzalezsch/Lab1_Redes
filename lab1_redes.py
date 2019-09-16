@@ -40,7 +40,7 @@ def transformadaFourierYgrafico(freqMuestreo,datos):
     plot.figure("Señal en Dominio de la Frecuencia ", [9.0, 6.0])
     plot.title('Grafico: Transformada de Fourier de la señal, en dominio de la frecuencia')
     plot.xlabel('Frecuencia(Hz)')
-    plot.ylabel('Amplitud')
+    plot.ylabel('F(w)')
     plot.plot(frecuencias, abs(datosTransformadaFourier))
     plot.show()
 
@@ -75,7 +75,7 @@ def truncarFrecuencias(freqMuestreo,datos):
     plot.figure("Señal en Dominio de las Frecuencias importantes ", [9.0, 6.0])
     plot.title('Grafico: Transformada de Fourier truncada de la señal, en dominio de la frecuencias importantes')
     plot.xlabel('Frecuencia(Hz)')
-    plot.ylabel('Amplitud')
+    plot.ylabel('F(w)')
     plot.plot(frecuencias, abs(datosTransformadaFourier))
     plot.show()
 
@@ -84,10 +84,10 @@ def truncarFrecuencias(freqMuestreo,datos):
 
 ############################ BLOQUE PRINCIPAL O MAIN ################################
 
-#graficoSenalHandel(freqMuestreo,datos)
+graficoSenalHandel(freqMuestreo,datos)
 a = transformadaFourierYgrafico(freqMuestreo,datos)
 (frecuencias, b) = truncarFrecuencias(freqMuestreo, datos)
-#transformadaFourierInversaYgrafico(a,freqMuestreo,datos, 'Grafico del audio con su transformada inversa en el tiempo')
+transformadaFourierInversaYgrafico(a,freqMuestreo,datos, 'Grafico del audio con su transformada inversa en el tiempo')
 transformadaFourierInversaYgrafico(b, freqMuestreo, datos, 'Grafico del audio con su transformada inversa truncada en el tiempo')
 
-#wavfile.write("a.wav", freqMuestreo, np.asarray(b, dtype=np.int16))
+wavfile.write("a.wav", freqMuestreo, np.asarray(b, dtype=np.int16))
